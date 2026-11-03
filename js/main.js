@@ -380,4 +380,59 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 
 // =====================================================
 //  SEARCH
-// 
+// =====================================================
+const searchData = [
+  { title: "AQA Combined Science",         url: "board.html?type=combined&board=aqa",     tags: "aqa combined trilogy biology chemistry physics" },
+  { title: "AQA Triple Science",           url: "board.html?type=triple&board=aqa",       tags: "aqa triple separate biology chemistry physics" },
+  { title: "Edexcel Combined Science",     url: "board.html?type=combined&board=edexcel",  tags: "edexcel pearson combined" },
+  { title: "Edexcel Triple Science",       url: "board.html?type=triple&board=edexcel",    tags: "edexcel pearson triple separate" },
+  { title: "OCR Gateway A Combined",       url: "board.html?type=combined&board=ocr-a",   tags: "ocr gateway combined" },
+  { title: "OCR Gateway A Triple",         url: "board.html?type=triple&board=ocr-a",     tags: "ocr gateway triple separate" },
+  { title: "OCR 21st Century B Combined",  url: "board.html?type=combined&board=ocr-b",   tags: "ocr 21st century combined" },
+  { title: "OCR 21st Century B Triple",    url: "board.html?type=triple&board=ocr-b",     tags: "ocr 21st century triple separate" },
+  { title: "Eduqas Combined Science",      url: "board.html?type=combined&board=eduqas",  tags: "eduqas wjec combined" },
+  { title: "Eduqas Triple Science",        url: "board.html?type=triple&board=eduqas",    tags: "eduqas wjec triple separate" },
+  { title: "CCEA Combined Science",        url: "board.html?type=combined&board=ccea",    tags: "ccea combined double award" },
+  { title: "CCEA Triple Science",          url: "board.html?type=triple&board=ccea",      tags: "ccea triple separate" },
+  { title: "Cell Biology",                 url: "board.html?type=combined&board=aqa#notes", tags: "cells mitosis meiosis biology" },
+  { title: "Bonding & Structure",          url: "board.html?type=combined&board=aqa#notes", tags: "ionic covalent metallic chemistry" },
+  { title: "Forces & Motion",              url: "board.html?type=combined&board=aqa#notes", tags: "forces newton physics" },
+  { title: "Energy",                       url: "board.html?type=combined&board=aqa#notes", tags: "energy kinetic potential physics" },
+  { title: "Organic Chemistry",            url: "board.html?type=combined&board=aqa#notes", tags: "organic crude oil alkanes alkenes cracking" },
+  { title: "Genetics & Evolution",         url: "board.html?type=combined&board=aqa#notes", tags: "genetics dna punnett evolution natural selection" },
+  { title: "Electricity",                  url: "board.html?type=combined&board=aqa#notes", tags: "electricity circuits current voltage resistance" },
+  { title: "Waves",                        url: "board.html?type=combined&board=aqa#notes", tags: "waves electromagnetic spectrum light sound" },
+];
+
+const searchBar = document.getElementById("searchBar");
+const searchResults = document.getElementById("searchResults");
+
+if (searchBar) {
+  searchBar.addEventListener("input", () => {
+    const q = searchBar.value.toLowerCase().trim();
+    if (q.length < 2) { searchResults.style.display = "none"; return; }
+
+    const matches = searchData.filter(item =>
+      item.title.toLowerCase().includes(q) || item.tags.includes(q)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = '<a href="#">No results found</a>';
+    } else {
+      searchResults.innerHTML = matches.map(m => `<a href="${m.url}">${m.title}</a>`).join("");
+    }
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".search-container")) searchResults.style.display = "none";
+  });
+}
+
+
+// =====================================================
+//  INIT — Render board page if on board.html
+// =====================================================
+if (window.location.pathname.includes("board.html")) {
+  renderBoardPage();
+}
