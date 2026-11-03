@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GCSE Science Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">🔬 GCSE Science Hub</a>
+    <div class="nav-right">
+      <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search topics, boards..." />
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <header class="hero hero-small">
+    <h1 id="pageTitle">Loading...</h1>
+    <p id="pageBack"><a href="index.html">← Back</a></p>
+  </header>
+
+  <main class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="papers">📄 Past Papers</button>
+      <button class="tab-btn" data-tab="notes">📝 Revision Notes</button>
+    </div>
+
+    <section id="papers" class="tab-content active"></section>
+    <section id="notes" class="tab-content"></section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 GCSE Science Hub. Past paper links belong to their respective exam boards.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
