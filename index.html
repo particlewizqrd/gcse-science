@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GCSE Science Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🔬 GCSE Science Hub</a>
+    <div class="nav-right">
+      <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search topics, boards..." />
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>GCSE Science Revision</h1>
+    <p>Past papers & revision notes for every exam board.</p>
+  </header>
+
+  <!-- CHOOSE PATH -->
+  <main class="container">
+    <h2 class="section-title">What science are you doing?</h2>
+    <div class="card-grid two-col">
+      <a href="combined.html" class="card card-combined">
+        <div class="card-icon">🧬</div>
+        <h3>Combined Science</h3>
+        <p>Trilogy / Synergy — 2 GCSEs covering Biology, Chemistry & Physics.</p>
+        <span class="card-arrow">→</span>
+      </a>
+      <a href="triple.html" class="card card-triple">
+        <div class="card-icon">⚗️</div>
+        <h3>Triple / Separate Science</h3>
+        <p>3 individual GCSEs in Biology, Chemistry & Physics.</p>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 GCSE Science Hub. Past paper links belong to their respective exam boards.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
